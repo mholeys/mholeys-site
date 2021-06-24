@@ -1,0 +1,26 @@
+{{$page := .}}
+
+<div class="item">
+    <a href="{{ .URL }}"></a>
+        <div class="image">
+            <img src="/image.png">
+        </div>
+        <div class="content">
+            <div class="header">{{ .Title }}</div>
+            <div class="meta">
+                <span class="date">{{ .Date.Format "Jan 2 2006" }}</span>
+            </div>
+            <div class="description">
+                <p>{{ .Summary }}</p>
+                <img src="/short-paragraph.png" class="ui wireframe image">
+            </div>
+            <div class="extra">
+                {{range $tag := .Params.tags}}
+                    <div class="ui label">
+                        {{ $tag }}
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </a>
+</div>

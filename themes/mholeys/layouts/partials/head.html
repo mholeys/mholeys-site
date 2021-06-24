@@ -1,0 +1,50 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ .Site.Title }}{{if and (not .IsHome) (.Title)}} - {{.Title}} {{end}}</title>
+    
+    {{if .Params.tags}}
+    <meta content="{{ delimit (union .Params.tags .Params.categories) ", " }}" name="keywords">
+    {{else}}
+    <meta content="{{.Site.Title}}" name="keywords">
+    {{end}}
+    <meta content="{{ .Site.Title }} - {{ or .Description .Summary (printf "A website called %s" .Site.Title)}}" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    {{ if .Site.Params.favicon }}
+        <link rel="icon" href="{{ .Site.Params.favicon | relURL }}">
+    {{ end }}
+
+    <!-- {{ with .OutputFormats.Get "RSS" }}
+        <link href="{{ .RelPermalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
+        <link href="{{ .RelPermalink }}" rel="feed" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
+    {{ end }} -->
+
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/semantic.min.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/reset.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/site.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/container.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/grid.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/header.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/image.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/menu.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/divider.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/dropdown.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/segment.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/button.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/list.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/icon.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/sidebar.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/semantic/components/transition.css" | relURL }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ "/styles.css" | relURL }}">
+
+
+    <script src=" {{ "/jquery-3.6.0.min.js" | relURL }}"></script>
+    <script src=" {{ "/semantic/semantic.min.js" | relURL }}"></script>
+    <script src=" {{ "/semantic/components/visibility.js" | relURL }}"></script>
+    <script src=" {{ "/semantic/components/sidebar.js" | relURL }}"></script>
+    <script src=" {{ "/semantic/components/transition.js" | relURL }}"></script>
+
+</head>

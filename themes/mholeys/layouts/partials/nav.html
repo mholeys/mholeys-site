@@ -1,0 +1,25 @@
+
+<!-- Desktop/tablet menu -->
+<div class="ui large top fixed hidden menu">
+    <div class="ui container">
+        <div class="header item">
+            <img class="logo" src="https://avatars.githubusercontent.com/u/5290351?v=4" />
+        </div>
+        <a class="active item" href="{{ "/" | relURL }}">Home</a>
+        <a class="item" href="{{ "/posts/" | relURL }}">Posts</a>
+        <div class="right menu">
+            <a class=" item" href="{{ .Site.Params.github_url }}">
+                <i class="icon"><img src="{{ "/github.svg" | relURL }}" /></i>
+                Github
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    <a class="active item"href="{{ "/" | relURL }}">Home</a>
+    <a class="item" href="{{ "/posts/" | relURL }}">Posts</a>
+    <a class="item">Login</a>
+    <a class="item">Signup</a>
+</div>

@@ -1,0 +1,25 @@
+baseURL = "https://mholeys.github.io/"
+languageCode = "en-gb"
+title = "mholeys' Github projects"
+theme = "mholeys"
+paginate = 3
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+
+
+
+pygmentsUseClasses=true
+
+[params]
+  author = "mholeys"
+  description = "Github projects"
+  keywords = "mholeys development projects"
+  useAvatar = true
+  microBlogSection = "posts"
+  displayMicroBlog = false
+  displayRecent = true
+  displayHomeContent = false
+  recentMax = 4
+  github_url = "https://github.com/mholeys"

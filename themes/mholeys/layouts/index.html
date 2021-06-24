@@ -1,0 +1,40 @@
+{{ define "main" }}
+<!-- <main class="main">
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+        </div>
+    </div>
+</main> -->
+
+<style type="text/css">
+    .masthead h1.ui.header {
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+</style>
+
+<div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui text container">
+        <h1 class="ui inverted header">
+            mholeys' Projects
+        </h1>
+        <a href="{{ "/posts/" | relURL }}" class="ui huge primary button">See projects <i class="right arrow icon"></i></a>
+    </div>
+</div>
+
+<div class="ui vertical center aligned segment">
+    <div class="ui text container">
+        <h2 class="ui header">Recent projects</h2>
+        {{ with (.Site.GetPage "section" "post")  }}
+            {{$index_posts_num := $.Site.Params.index_posts_num | default 8}}
+            {{range first $index_posts_num .Pages.ByDate.Reverse}}
+                {{ partial "article" .}}
+            {{end}}
+        {{ end }}
+    </div>
+</div>
+
+{{end}}
