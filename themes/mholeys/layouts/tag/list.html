@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+{{ $paginator := (.Paginate ( first 50 .Pages ) 25) }}
+{{ $adjacent_links := 2 }}
+<!-- $max_links = ($adjacent_links * 2) + 1 -->
+{{ $max_links := (add (mul $adjacent_links 2) 1) }}
+<!-- $lower_limit = $adjacent_links + 1 -->
+{{ $lower_limit := (add $adjacent_links 1) }}
+<!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+{{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+
+<div class="ui container">
+    <div class="ui segment">
+        <h1 class="ui divided header">Tags</h1>
+        <div class="ui three column grid">
+            {{ range $paginator.Pages }}
+                {{ partial "tag_item" .}}
+            {{end}}
+        </div>
+        {{ $paginator := .Paginator }}
+        {{ partial "paginate" (dict "context" . "paginator" $paginator "adjacent_links" $adjacent_links "max_links" $max_links "lower_limit" $lower_limit "upper_limit" $upper_limit ) }}
+    </div>
+</div>
+{{end}}

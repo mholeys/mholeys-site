@@ -1,0 +1,14 @@
+{{ $taxonomy := "tags" }} {{ with .Param $taxonomy }}
+
+<div class="ui labels">
+    {{ range $index, $tag := . }} {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
+        <a href="{{ .Permalink }}">
+            <div class="ui primary label">
+                {{ $tag }}
+            </div>
+        </a>
+    {{ end }} 
+    {{ end }}
+</div>
+
+{{ end }}

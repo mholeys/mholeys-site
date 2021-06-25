@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<div class="ui container" style="margin-top: 5em;">
+    <div class="ui segment">
+        <h1 class="ui divided header">Posts tagged with"{{ .Name }}"</h1>
+        <div class="ui divided link items">
+            {{ range .Data.Pages }}
+                {{ partial "post_item" .}}
+            {{end}}
+        </div>
+    </div>
+</div>
+{{end}}

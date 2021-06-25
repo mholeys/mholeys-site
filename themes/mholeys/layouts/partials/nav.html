@@ -1,25 +1,50 @@
+<script>
+    $(document)
+        .ready(function () {
+            // fix menu when passed
+            // $('.masthead')
+            //     .visibility({
+            //         once: false,
+            //         onBottomPassed: function () {
+            //             $('.fixed.menu').transition('fade in');
+            //         },
+            //         onBottomPassedReverse: function () {
+            //             $('.fixed.menu').transition('fade out');
+            //         }
+            //     });
+            // create sidebar and attach to menu open
+            $('.ui.sidebar').sidebar('attach events', '.toc.item');
+        });
+</script>
+
+
+
+<!-- Sidebar Menu -->
+<div class="ui top vertical menu sidebar">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+        <a class="item {{ if $currentPage.IsMenuCurrent "main" . }}active {{ end }}" href="{{ .URL }}">{{ .Pre }}{{ .Name }}{{ .Post }}</a>
+    {{ end }}
+</div>
 
 <!-- Desktop/tablet menu -->
-<div class="ui large top fixed hidden menu">
+<!-- ui fixed inverted menu -->
+<div class="ui top large fixed menu">
     <div class="ui container">
+        <a class="toc item">
+            <i class="sidebar icon"></i>
+        </a>
         <div class="header item">
             <img class="logo" src="https://avatars.githubusercontent.com/u/5290351?v=4" />
         </div>
-        <a class="active item" href="{{ "/" | relURL }}">Home</a>
-        <a class="item" href="{{ "/posts/" | relURL }}">Posts</a>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+            <a class="item {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">{{ .Pre }}{{ .Name }}{{ .Post }}</a>
+        {{ end }}
         <div class="right menu">
-            <a class=" item" href="{{ .Site.Params.github_url }}">
-                <i class="icon"><img src="{{ "/github.svg" | relURL }}" /></i>
-                Github
-            </a>
+            {{ range .Site.Menus.right }}
+                <a class="item {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">{{ .Pre }}{{ .Name }}{{ .Post }}</a>
+            {{ end }}
         </div>
     </div>
-</div>
-
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
-    <a class="active item"href="{{ "/" | relURL }}">Home</a>
-    <a class="item" href="{{ "/posts/" | relURL }}">Posts</a>
-    <a class="item">Login</a>
-    <a class="item">Signup</a>
 </div>

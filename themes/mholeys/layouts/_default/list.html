@@ -1,9 +1,9 @@
 {{ define "main" }}
-<div class="ui container" style="margin-top: 5em;">
+<div class="ui container">
     <div class="ui segment">
         <div class="ui divided link items">
             {{ range $index, $element := .Paginator.Pages }}
-                {{ partial "article_item" .}}
+                {{ partial "default_item" .}}
             {{end}}
         </div>
     </div>

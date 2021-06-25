@@ -1,15 +1,15 @@
 {{ define "title" }}
-    <!-- This will override the default value set in baseof.html; i.e., "{{.Site.Title}}" in the original example-->
     {{ .Title }} &ndash; {{ .Site.Title }}
 {{ end }}
 
 {{ define "main" }}
-
 <div class="ui container">
     <div class="ui segment">
-        <h1>{{ .Title }}</h1>
+        <h1 class="ui dividing header">{{ .Title }}</h1>
+        
+        {{ partial "tags" .}}
+        
         {{ .Content }}
     </div>
 </div>
-
 {{ end }}

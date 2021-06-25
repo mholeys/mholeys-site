@@ -1,0 +1,12 @@
+{{$page := .}}
+
+<div class="column">
+    <div class="ui fluid card">
+        <div class="content">        
+            <a class="header" href="{{ .URL }}">{{ .Title }}</a>
+            <div class="extra content">
+                {{ len .Data.Pages }} Posts
+            </div>
+        </div>
+    </div>
+</div>

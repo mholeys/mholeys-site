@@ -2,13 +2,33 @@ baseURL = "https://mholeys.github.io/"
 languageCode = "en-gb"
 title = "mholeys' Github projects"
 theme = "mholeys"
-paginate = 3
+paginate = 10
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 
-
-
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 100
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 110
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 120
+  [[menu.right]]
+    identifier = "github"
+    name = "Github"
+    url = "https://github.com/mholeys"
+    pre = "<i class='icon'><img src='/github.svg' /></i>"
+    weight = 100
 
 pygmentsUseClasses=true
 
